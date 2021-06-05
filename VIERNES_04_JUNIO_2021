@@ -1,0 +1,226 @@
+Módulo 2 - SQL día 4 semana 6
+VIERNES 03 JUNIO 2021
+
+***REPASO CLASE ANTERIOR***
+DATOS: elemento informativo con reelevancia para un usuario.
+INFORMACION: conjunto de datos consignificado, aumentan el conocimiento y reducen la incertidumbre.
+BASES DE DATOS: colección organizada de información estructurada o datos. Usualmente controlada por un sistema de gestión de base de datos DBMS.
+
+TIPOS DE CAMPO:
+Alfanuméricos
+Numéricos
+Booleanos
+Fechas
+Autoincrementables ¿?
+
+TIPOS DE DATOS SQL
+INT: Numeros enteros
+DOUBLE: Numeros reales (grandes y cn decimales)
+CHAR: Alfanuméricos
+VARCHAR: Alfanuméricos
+DATE: Fechas
+BOOLEAN: True or false
+
+SENTENCIAS SQL
+DDL: Lenguaje de Definición de Datos
+DML: Lenguaje Manipulación de Datos
+DSL: Lenguaje Specifico de Dominio
+
+SENTENCIAS SQL
+SELECT: Recupera datos de la base de datos.
+INSERT: Añade nuevas filas de datos a la base de datos.
+DELETE: Suprime filas de datos de la base de datos.
+UPDATE: Modifica datos existentes en la base de datos.
+CREATE: Crea distintos elementos de nuestra base de datos
+DROP: Elimina elementos de la base de datos.
+ALTER: Modifica la estructura de la base de datos
+
+CREACION DE UNA TABLA:
+create table 100TOPSADSONGS(
+  id_100TOPSADSONGS int auto_increment,
+  artista varchar(25),
+  lyrics text,
+  primary key(id_100TOPSSADSONGS)
+);
+
+MODIFICAR UNA TABLA
+1) alter table 100TOPSADSONGS add column duración int;
+2) alter table 100TOPSADSONGS drop column lyrics;
+3) drio table 100TOPSADSONGS;
+
+***CONTROL***
+--- ---
+create database vacunas character set utf8;
+
+use vacunas;
+
+create table vacunasTabla(
+  id_vacunasTabla int auto_increment,
+  nombre varchar(15),
+  rut int,
+  direccion varchar(30),
+  fecha date,
+  nombrevacuna varchar(25),
+  primeradosis date,
+  segundadosis text,
+  primary key(id_vacunasTabla)
+);
+
+alter table vacunasTabla add column efectividad float;
+alter table vacunasTabla add column efectos text;
+alter table vacunasTabla modify segundadosis date;
+alter table vacunasTabla drop direccion;
+
+create table vacunadosTabla(
+  id_vacunadosTabla int auto_increment,
+  nombre varchar(15),
+  nombrevacuna varchar(25),
+  sintomasprimerdia text,
+  sintomassegundodia text,
+  energiadia1 int,
+  animodia1 text,
+  alimentaciondia1 text,
+  energiadia2 int,
+  animodia2 text,
+  alimentaciondia2 int,
+  primary key(id_vacunadosTabla)
+);
+
+alter table vacunadosTabla modify alimentaciondia2 text;
+alter table vacunadosTabla add column dosis int;
+--- ---
+
+AÑADIR REGISTROS
+insert into TOP100SADSONGS (artista, duración...etc)
+values ('RadioHead',3:45);
+
+***TRABAJO EN CLASE 1***
+--- ---
+create database vacunas character set utf8;
+
+use vacunas;
+
+create table vacunasTabla(
+  id_vacunasTabla int auto_increment,
+  nombre varchar(15),
+  rut float,
+  direccion varchar(30),
+  fecha date,
+  nombrevacuna varchar(25),
+  primeradosis date,
+  segundadosis text,
+  primary key(id_vacunasTabla)
+);
+
+alter table vacunasTabla add column efectividad float;
+alter table vacunasTabla modify segundadosis date;
+
+insert into vacunasTabla (nombre, rut, direccion, fecha, nombrevacuna)
+values ('Yo','18082374-3', 'Miami 123', '2021-06-04', 'Sinovac');
+--- ---
+create database puzzlegames character set utf8;
+
+use puzzlegames;
+
+create table puzzlegamesTabla(
+  id_puzzlegamesTabla int auto_increment,
+  nombre varchar(15),
+  Desarrollador varchar(35),
+  año float,
+  modo varchar (25),
+  Premios float,
+  primary key(id_puzzlegamesTabla)
+);
+
+insert into puzzlegamesTabla (nombre, desarrollador, año, modo, premios)
+values ('Fez','Polytron', 2012, 'one player', 'Excellence in Visual Art');
+--- ---
+create database loldata character set utf8;
+
+use loldata;
+
+create table lolTabla(
+  id_lolTabla int auto_increment,
+  campeon varchar(25),
+  rol text,
+  dificultad text,
+  skins float,
+  R float,
+  primary key(id_lolTabla)
+);
+
+alter table lolTabla add column objetos text;
+
+insert into lolTabla (campeon, rol, dificultad, skins, R)
+values ('Anivia','Mago', 'Alta', 'Anivia Reina Festival');
+--- ---
+
+***TRABAJO EN CLASE 2***
+--- ---
+create database books character set utf8;
+
+use books;
+
+create table booksTable(
+  id_booksTable int auto_increment,
+  idlibro int,
+  nombrelibro varchar(30),
+  idiomaoriginal varchar(30),
+  pais varchar(30),
+  paginas int,
+  autor varchar(30),
+  temas varchar(30),
+  editorial varchar(30),
+  edicion varchar(30), 
+  ilustrador varchar(30),
+  añopublicacion date,
+  categoria varchar(30),
+  subcategoria varchar(40),
+  ejemplares int,
+  fechadecompra date,
+  precio int,
+  resumen text,
+  Premios varchar(30),
+  adaptaciones int,
+  Valoracion int,
+  primary key(id_booksTable)
+);
+
+insert into workTable (idlibro, nombrelibro, idiomaorigial, pais, paginas, autor, temas, editorial, edicion, ilustrador, añopublicacion, categoria, subcategoria, ejemplares, fechacompra, precio, resumen, premios, adaptaciones, valoracion)
+values (451,'fahrenheit cuatrocincouno','inglés','Estados Unidos',256,'Ray Bradbury','conformismo','Ballantine Books','Debolsillo','Joseph Mugnaini','1953-10-19','Novela','Novela Filosófica',90000,'1978-09-13',10990,'Bombero que quema libros y luego se vuelve malo y los salva',10,'Premio Hugo', 10);
+--- ---
+
+create database workworkwork character set utf8;
+
+use workworkwork;
+
+create table workTable(
+  id_worktable int auto_increment,
+  idempleado int,
+  nombre varchar(30),
+  apellidoP varchar(30),
+  apellidoM varchar(30),
+  direccion varchar(30),
+  edad int, 
+  AFP varchar(30),
+  Salud varchar(30),
+  cargas int,
+  departamento varchar(30),
+  cargo varchar(30),
+  personasacargo int,
+  sueldo int,
+  bono int,
+  transporte boolean,
+  almuerzo boolean,
+  fechaingreso date,
+  terminocontrato varchar(30),
+  nosequeponeraquiyquieroterminar text,
+  primary key(id_workTable)
+);
+
+insert into workTable (idempleado, nombre, apellidoP, apellidoM, direccion, edad, AFP, Salud, cargas, departamento, cargo, personasacargo, sueldo, bono, transporte, almuerzo, fechaingreso, terminocontrato,nosequeponeraquiyquieroterminar)
+values (55555,'Cinco', 'Quinientos', 'Cincuenta','Avenida Sin comil',55,'AFP NCO','CONsalud',0,'Números','Contador',0,555.000,250000,'si','si','2005-05-15','indefinido','THE END');
+--- ---
+
+Feliz porque cada vez me gusta más esto
+F I N N
