@@ -1,0 +1,57 @@
+***TRABAJO EN CLASE***
+--- ---
+
+create database casadelucha character set utf8;
+
+use casadelucha;
+
+create table casadeluchaTabla(
+  id_casadeluchaTabla int auto_increment,
+  nombres varchar(25),
+  estilo text,
+  movimientoespecial text,
+  puntosdefuerza float,
+  popularidad float,
+  primary key(id_casadeluchaTabla)
+);
+--- ---
+
+create database vacunas character set utf8;
+
+use vacunas;
+
+create table vacunasTabla(
+  id_vacunasTabla int auto_increment,
+  nombre varchar(15),
+  rut int,
+  direccion varchar(30),
+  fecha date,
+  nombrevacuna varchar(25),
+  primeradosis date,
+  segundadosis text,
+  primary key(id_vacunasTabla)
+);
+
+alter table vacunasTabla add column efectividad float;
+alter table vacunasTabla modify segundadosis date;
+--- ---
+
+create database puzzlegames character set utf8;
+
+use puzzlegames;
+
+create table puzzlegamesTabla(
+  id_puzzlegamesTabla int auto_increment,
+  nombre varchar(15),
+  Desarrollador varchar(35),
+  año float,
+  modo varchar(25),
+  Premios float,
+  primary key(id_puzzlegamesTabla)
+);
+
+alter table puzzlegamesTabla add column reseña text;
+alter table puzzlegamesTabla add column valor float;
+--- ---
+
+F I N N
