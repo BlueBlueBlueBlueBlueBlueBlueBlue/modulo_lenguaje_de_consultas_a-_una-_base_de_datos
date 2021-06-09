@@ -1,0 +1,142 @@
+EJERCICIOS;
+select nombre, apellidoP, ApellidoM from empleadosT where sueldo>500000;
+create database empleadosartes character set utf8;
+
+use empleadosartes;
+
+create table empleadosT(
+id_empleadosT int auto_increment,
+idEmpleado int,
+nombre varchar(15),
+apellidoP varchar(15),
+apellidoM varchar(15),
+edad int,
+departamento varchar(20),
+cargo varchar(25),
+sueldo int,
+fechaIngreso date,
+primary key(id_empleadosT)
+
+);
+
+insert into empleadosT (idEmpleado, nombre, apellidoP, apellidoM, edad, departamento, cargo, sueldo, fechaingreso)
+values (555,'Aracelli','Matta','Matta',28,'artes del movimiento','docente',950000,'2025-02-15'),
+(392,'Anna','Serani','Delpiano',33,'artes musicales','docente',1250000,'2020-01-08'),
+(888,'Finn','Snow','',50,'artes','docente',950000,'2010-06-09'),
+(357,'Gael','Walker','Taylor',75,'artes plasticas','director',1250000,'2010-08-09'),
+(960,'Teo','Hoffmann','Müller',30,'artes del movimiento','docente',950000,'2022-08-15'),
+(777,'Yuki','Hattori','Hirose',28,'artes musicales','docente',950000,'2020-05-25'),
+(666,'Mei','Wang','Li',32,'artes visuales','Rector',1250000,'2015-05-23'),
+(678,'Faddei','Petrov','Ivanov',44,'artes plasticas','docente',950000,'2013-03-31'),
+(999,'Agustín','Escobar','Fuentes',90,'artes musicales','director',1250000,'2023-03-21'),
+(444,'Karin','Salmon','Heming',37,'artes del movimiento','tutor',800000,'2030-05-05'),
+(698,'Margarita','Gonzales','Vásquez',65,'artes plasticas','tutor',800000,'2022-09-28'),
+(321,'Paolo','Durán','Gonzales',78,'artes del movimiento','director',1250000,'2014-04-14'),
+(987,'Sasha','Clarck','Ochoa',26,'artes musicales','tutor',800000,'2009-04-09'),
+(000,'Flérida','Vallejos','Matus',54,'artes visuales','docente',950000,'2025-07-31'),
+(007,'Yu','Zhang','Lin',39,'artes del movimiento','tutor',800000,'2001-01-01'),
+(888,'Cristina','Vásquez','Vallejos',48,'artes visuales','director',1250000,'2005-07-09'),
+(902,'Ángel','Rogget','Hormann',67,'artes musicales','docente',1250000,'2025-06-07'),
+(765,'Mashiro','Park','Min',20,'artes del movimiento','tutor',800000,'2022-02-02'),
+(313, 'Tanjiro','Kamado','',25,'artes del movimiento','tutor',800000,'2020-03-03');
+
+select nombre, apellidoP, apellidoM from empleadosT where sueldo>1000000;
+select nombre, apellidoP, ApellidoM from empleadosT where sueldo>500000 and departamento='artes musicales';
+select nombre, apellidoP, apellidoM from empleadosT where sueldo>1000000 and departamento='artes musicales';
+select nombre, apellidoP from empleadosT where departamento='artes del movimiento';
+select nombre, apellidoP from empleadosT where departamento='artes plasticas';
+
+---WHERE y NOT IN---
+select nombre, apellidoP from empleadosT where departamento not in('artes del movimiento');
+select nombre, apellidoP from empleadosT where cargo not in('docente') or ('tutor');
+select nombre, apellidoP from empleadosT where sueldo not in(800000);
+---WHERE y <>---
+select cargo from empleadosT where sueldo <> 800000;
+select nombre, departamento from empleadosT where cargo <> 'tutor';
+select nombre, apellidoP from empleadosT where departamento <> 'artes visuales';
+---BETWEEN---
+select nombre, apellidoP, departamento from empleadosT where sueldo between 500000 and 900000;
+select nombre, apellidoP from empleadosT where fechaingreso between '2000-01-01' and '2020-01-01';
+select nombre, apellidoP, departamento from empleadosT where fechaingreso between '2021-01-01' and '2025-12-31';
+--- ---LIKE---
+select * from empleadosT where nombre like 'a%';
+select * from empleadosT where nombre like '%a';
+select * from empleadosT where nombre like '%a%';
+select * from empleadosT where nombre like 'a%i';
+select * from empleadosT where nombre like 'a%a';
+select * from empleadosT where nombre like 't%i%';
+select * from empleadosT where nombre like 'ta%';
+select cargo, nombre, apellidoP from empleadosT where nombre like 'a%';
+
+
+
+create database libros character set utf8;
+
+use libros;
+
+create table librosT(
+id_librosT int auto_increment,
+idLibros int,
+nombrelibro varchar(35),
+autor varchar(35),
+editorial varchar(35),
+edicion varchar(35),
+añoPublicacion date,
+categoria varchar(35),
+ejemplares int,
+primary key(id_librosT)
+
+);
+
+insert into librosT (idLibros, nombrelibro, autor, editorial, edicion, añoPublicacion, categoria, ejemplares)
+values (123,'Fahrenheit cuatro cinco uno','Ray Bradbury','Ballantine Books','húngara','1955-01-01','novela',500),
+(234,'The Hundred and One Dalmatians','Dodie Smith','planeta','comic','1956-02-02','novela infantil',150),
+(345,'El Odio a la Musica','Pascal Quignard','Andres Bello','primera','2012-03-03','ensayo',300),
+(456,'El origen de las especies','Charles Darwin','Andres Bello','tercera','1859-04-04','literatura científica',500),
+(567,'Lost Connections','Johann Hari','zigzag','segunda','2018-05-05','literatura científica',500),
+(678,'Mujeres que corren con los lobos','Clarissa Pinkola Estés','zigzag','tercera','2020-06-06','ensayo',300),
+(789,'El origen de la danza','Pascal Quignard','zigzag','ilustrada','2000-07-07','ensayo',350),
+(890,'A mind for numbers','Barbara Oakley','Andres Bello','segunda','2005-08-08','literatura cientifica',150),
+(901,'The Epigenetics Revolution','Nessa Carey','Andres Bello','tercera','2018-09-09','literatura cientifica',300),
+(012,'Moby Dick','Herman Melville','zigzag','segunda','1855-10-10','novela',200),
+(101,'La polilla del baúl','Carlos Saraniti y Mario Carvajal','zigzag','primera','1999-11-11','literatura infantil',150),
+(102,'El increíble mundo de Llanca','Alicia Morel','zigzag','ilustrada','1977-12-12','literatura infantil',150),
+(103,'Altazor','Vicente Huidobro','planeta','comic','1931-01-01','poesia',500),
+(104,'Mans Search for Meaning','Viktor Frankl','planeta','tercera','1946-02-02','segunda guerra mundial',300),
+(105,'Los viajes de Gulliver','Jonathan Swift','zigzag','ilustrada','1726-03-03','novela',250),
+(106,'La bailarina de Auschwitz','Edith Eger','planeta','primera','2017-04-04','segunda guerra mundial',250),
+(107,'Mío Cid Campeador','Vicente Huidobro','planeta','tercera','1931-05-05','poesia',500),
+(108,'Mindshift','Barbara Oakley','Andres Bello','segunda','2015-06-06','literatura cientifica',350),
+(109,'En Auschwitz no habia Prozac','Edith Eger','planeta','primera','2018-07-07','segunda guerra mundial',200);
+
+EJERCICIOS;
+select nombrelibro from librosT where ejemplares>100;
+select nombrelibro from librosT where ejemplares>400;
+select nombrelibro, autor, edicion from librosT where (edicion='primera'or edicion='segunda') and autor='Barbara Oakley';
+select nombrelibro, autor from librosT where (edicion='primera' or edicion='segunda') and autor='Pascal Quignard';
+select autor, edicion from librosT where (edicion='primera' or edicion='segunda' or edicion='tercera') and autor='Charles Darwin';
+select autor, editorial from librosT where editorial='Oceano' or editorial='Planeta' or editorial='ZigZag';
+
+---WHERE y NOT IN---
+select autor, editorial from librosT where editorial not in('zigzag');
+select nombrelibro, autor, edicion from librosT where edicion not in('primera');
+select *from librosT where autor not in('Pascal Quignard');
+---WHERE y <>---
+select libros from librosT where editorial <> 'húngara' or 'planeta';
+select nombrelibro, editorial, ejemplares from librosT where ejemplares between 100 and 330;
+select * from librosT where ejemplares <>500;
+---BETWEEN---
+select * from librosT where añoPublicacion between '1990-01-01' and '2025-01-01';
+select * from librosT where ejemplares between 400 and 500;
+select * from librosT where ejemplares between 100 and 500;
+---LIKE---
+select * from librosT where nombrelibro like 'a%';
+select * from librosT where nombrelibro like '%a';
+select * from librosT where nombrelibro like '%a%';
+select * from librosT where nombrelibro like 'a%i';
+select * from librosT where nombrelibro like 'a%a';
+select * from librosT where nombrelibro like 't%i%';
+select * from librosT where nombrelibro like 'ta%';
+select editorial, nombrelibro, edicion from librosT where nombrelibro like 'a%';
+
+(: creo que voy bien, he resolvido dudas, y ya se me hace más familiar el lenguaje.
